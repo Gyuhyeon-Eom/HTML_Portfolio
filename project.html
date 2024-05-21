@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>엄규현의 포트폴리오</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            color: #fff;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        nav {
+            display: flex;
+            padding-right: 50px;
+        }
+        nav a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #fff;
+            padding-bottom: 5px;
+            transition: border-bottom 0.3s;
+        }
+        nav a.active {
+            border-bottom: 2px solid #fff;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 20px 20px;
+        }
+        section {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #000;
+            text-align: center;
+            padding: 100px 20px;
+            width: 100%;
+            position: relative;
+        }
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        section p {
+            font-size: 1.2rem;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #ffc133;
+        }
+        .hero {
+            background: url('background.png') no-repeat center center/cover;
+            height: 500px;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .hero h1, .hero h2, .hero p {
+            margin: 0;
+        }
+        .hero h1 {
+            font-size: 4rem;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero p {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #e94e77;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .hero a:hover {
+            background: #d43d66;
+        }
+        .about-me-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2x3 레이아웃 */
+            gap: 40px; /* 간격 조절 */
+            justify-items: center;
+            align-items: center;
+            color: #000; /* 검정색 텍스트 */
+        }
+        .about-me-info div {
+            text-align: center;
+        }
+        .about-me-info img {
+            display: block;
+            margin: 0 auto 10px;
+            width: 50px;
+            height: 50px;
+        }
+        .about-me-info p {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: bold; /* 글씨 두께 설정 */
+        }
+        .skills, .archiving, .projects {
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 0; /* 상하 여백 추가 */
+        }
+        .skills-container, .archiving-container, .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .skill-box, .archiving-box, .projects-box {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .skill-box:hover, .archiving-box:hover, .projects-box:hover {
+            transform: translateY(-10px);
+        }
+        .skill-box img, .archiving-box img, .projects-box img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .archiving-box {
+            display: flex;
+            align-items: center;
+            background: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 30px;
+            text-align: left;
+            width: calc(80% - 20px);
+        }
+        .archiving-box img {
+            width: 50%;
+            height: auto;
+            margin-right: 20px;
+        }
+        .archiving-box div {
+            flex: 1;
+        }
+        .archiving-box h3 {
+            margin-top: 0;
+        }
+        .archiving-box a {
+            display: block;
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .archiving-box a:hover {
+            text-decoration: underline;
+        }
+        .projects-box {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 30px;
+            text-align: left;
+            width: calc(80% - 20px);
+        }
+        .projects-box img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .projects-box div {
+            flex: 1;
+        }
+        .projects-box h3 {
+            margin-top: 0;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .projects-box p {
+            margin: 10px 0;
+        }
+        .projects-box a {
+            display: block;
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .projects-box a:hover {
+            text-decoration: underline;
+        }
+        .carousel {
+            position: relative;
+            width: 150px; /* 슬라이드 이미지 너비와 동일하게 설정 */
+            overflow: hidden;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-inner img {
+            width: 150px;
+            height: auto;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-controls button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            width: calc(25% - 40px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .card h3 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+        .card p {
+            margin: 10px 0;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        #about-me {
+            background-color: transparent;
+        }
+        #skills {
+            background-color: #F3E5F5;
+        }
+        #archiving {
+            background-color: #E8F5E9;
+        }
+        #projects {
+            background-color: #FFF3E0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Eom's portfolio</h1>
+        <nav>
+            <a href="#about-me" class="active">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#archiving">Archiving</a>
+            <a href="#projects">Projects</a>
+        </nav>
+    </header>
+    <div class="hero">
+        <h1>- 엄규현 -</h1>
+        <h2>데이터 분석가 포트폴리오</h2>
+        <p>데이터 분석가를 꿈꾸는 학부생의 포트폴리오 입니다.</p>
+        <a href="#about-me">더 알아보기 ↓</a>
+    </div>
+    <div class="container">
+        <section id="about-me" class="about-me">
+            <h2>About Me</h2>
+            <div class="about-me-info">
+                <div>
+                    <img src="person.png" alt="이름">
+                    <p>이름<br>엄규현</p>
+                </div>
+                <div>
+                    <img src="callender.png" alt="생년월일">
+                    <p>생년월일<br>97.11.28</p>
+                </div>
+                <div>
+                    <img src="call.png" alt="연락처">
+                    <p>연락처<br>010-6862-6229</p>
+                </div>
+                <div>
+                    <img src="mail.png" alt="이메일">
+                    <p>이메일<br>gheom24@gmail.com</p>
+                </div>
+                <div>
+                    <img src="map.png" alt="주소지">
+                    <p>주소지<br>경기도 안양시</p>
+                </div>
+                <div>
+                    <img src="pen.png" alt="학력">
+                    <p>학력<br>한양대학교 ERICA<br>(해양융합공학과)</p>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="card">
+                    <img src="matlab.png" alt="MATLAB">
+                    <h3>MATLAB</h3>
+                    <p>MATLAB을 사용한 데이터 분석 및 모델링</p>
+                </div>
+                <div class="card">
+                    <img src="python.png" alt="Python">
+                    <h3>Python</h3>
+                    <p>Python을 사용한 데이터 분석 및 시각화</p>
+                </div>
+                <div class="card">
+                    <img src="sql.png" alt="SQL">
+                    <h3>SQL</h3>
+                    <p>SQL을 사용한 데이터베이스 관리 및 쿼리</p>
+                </div>
+                <div class="card">
+                    <img src="c++.png" alt="C++">
+                    <h3>C++</h3>
+                    <p>C++을 사용한 소프트웨어 개발 및 알고리즘 구현</p>
+                </div>
+                <div class="card">
+                    <img src="git.png" alt="Git">
+                    <h3>Git</h3>
+                    <p>Git을 사용한 버전 관리 및 협업</p>
+                </div>
+                <div class="card">
+                    <img src="qnet.png" alt="Q-Net">
+                    <h3>정보처리기사</h3>
+                    <p>정보처리기사 자격증 보유</p>
+                </div>
+                <div class="card">
+                    <img src="kdata.png" alt="kdata">
+                    <h3>빅데이터분석기사</h3>
+                    <p>빅데이터분석기사 자격증 보유</p>
+                </div>
+                <div class="card">
+                    <img src="kdata.png" alt="kdata">
+                    <h3>SQLD</h3>
+                    <p>SQLD 자격증 보유</p>
+                </div>
+                <div class="card">
+                    <img src="coursera.png" alt="Coursera">
+                    <h3>Coursera</h3>
+                    <p>IBM DATA Analyst 과정 수료</p>
+                </div>
+            </div>
+        </section>
+        <section id="archiving" class="archiving">
+            <h2>Archiving</h2>
+            <div class="archiving-container">
+                <div class="archiving-box">
+                    <img src="git.png" alt="GitHub">
+                    <div>
+                        <h3>소스 코드 저장소 입니다</h3>
+                        <p>과거 프로젝트의 소스코드, 문서화된 예제 및 연습문제의 소스코드</p>
+                        <a href="https://github.com/Gyuhyeon-Eom" target="_blank">https://github.com/Gyuhyeon-Eom</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <div class="projects-box">
+                    <div class="carousel">
+                        <div class="carousel-inner" id="carousel-inner-1">
+                            <img src="image1.png" alt="Project Image 1">
+                            <img src="image2.png" alt="Project Image 2">
+                            <img src="image3.png" alt="Project Image 3">
+                            <img src="image4.png" alt="Project Image 4">
+                        </div>
+                        <div class="carousel-controls">
+                            <button onclick="prevSlide('carousel-inner-1')">←</button>
+                            <button onclick="nextSlide('carousel-inner-1')">→</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>노크 문 잠금장치</h3>
+                        <p>2014.06 (3인 팀 프로젝트)</p>
+                        <p>노크 문 잠금장치는 몸이 불편한 사람들을 위해 개발된 프로젝트입니다.</p>
+                        <a href="project1.html" target="_blank">자세히 보기</a>
+                        <ul>
+                            <li>주요 기능: 보안 강화, 장애가 있는 사람들을 위한 편리한 잠금해제, 시각 장애우를 위한 잠금장치로 사용 가능</li>
+                            <li>Arduino, C, C++</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="projects-box">
+                    <div class="carousel">
+                        <div class="carousel-inner" id="carousel-inner-2">
+                            <img src="image5.png" alt="Project Image 5">
+                        </div>
+                        <div class="carousel-controls">
+                            <button onclick="prevSlide('carousel-inner-2')">←</button>
+                            <button onclick="nextSlide('carousel-inner-2')">→</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>고등학교 어플 개발</h3>
+                        <p>2013.06 (동아리 프로젝트)</p>
+                        <p>고등학교 학우들의 편의를 위해 개발된 어플.</p>
+                        <a href="project2.html" target="_blank">자세히 보기</a>
+                        <ul>
+                            <li>주요 기능: 학교 약도, 학급 시간표, 급식 메뉴, 공지사항, 학사 일정</li>
+                            <li>Java, C, C++</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="projects-box">
+                    <div class="carousel">
+                        <div class="carousel-inner" id="carousel-inner-3">
+                            <img src="image6.gif" alt="Project Image 6">
+                            <img src="image6-2.gif" alt="Project Image 6-2">
+                        </div>
+                        <div class="carousel-controls">
+                            <button onclick="prevSlide('carousel-inner-3')">←</button>
+                            <button onclick="nextSlide('carousel-inner-3')">→</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Waterpool Simulation Using Regular waves</h3>
+                        <p>2023.09 (4인 팀 프로젝트)</p>
+                        <p>Dispersion Relationship을 활용한 규칙파 생성 및 인공 파도풀 시뮬레이션.</p>
+                        <a href="project3.html" target="_blank">자세히 보기</a>
+                        <ul>
+                            <li>주요 기능: 원하는 수심, 주기에 따른 파도풀의 시뮬레이션을 가능하게 할 수 있는 모델</li>
+                            <li>Python, Matlab</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="projects-box">
+                    <div class="carousel">
+                        <div class="carousel-inner" id="carousel-inner-4">
+                            <img src="image8.png" alt="Project Image 8">
+                            <img src="image9.png" alt="Project Image 9">
+                            <img src="image10.png" alt="Project Image 10">
+                            <img src="image11.png" alt="Project Image 11">
+                        </div>
+                        <div class="carousel-controls">
+                            <button onclick="prevSlide('carousel-inner-4')">←</button>
+                            <button onclick="nextSlide('carousel-inner-4')">→</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>AMOC Trend Analysis</h3>
+                        <p>2023.09 (5인 팀 프로젝트)</p>
+                        <p>지구온난화로 인한 열염순환 약화와 이 원인이 무엇인가를 밝히는 데이터 분석 작업.</p>
+                        <a href="project4.html" target="_blank">자세히 보기</a>
+                        <ul>
+                            <li>데이터 수집 및 전처리, 시각화 및 그래프 작성, 데이터 분석, 모델 간 비교, 미분 방정식을 활용한 모델링</li>
+                            <li>Matlab</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="projects-box">
+                    <div class="carousel">
+                        <div class="carousel-inner" id="carousel-inner-5">
+                            <img src="image12.png" alt="Project Image 12">
+                            <img src="image13.png" alt="Project Image 13">
+                            <img src="image14.png" alt="Project Image 14">
+                            <img src="image15.png" alt="Project Image 15">
+                            <img src="image16.png" alt="Project Image 16">
+                        </div>
+                        <div class="carousel-controls">
+                            <button onclick="prevSlide('carousel-inner-5')">←</button>
+                            <button onclick="nextSlide('carousel-inner-5')">→</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3> AMOC 및 NSHF 변화와 풍속 변화의 관계 해석</h3>
+                        <p>2024.03 (3인 팀 프로젝트)</p>
+                        <p>지구 시스템의 중요한 구성 요소인 AMOC과 NSHF간의 관계를 연구하는 것을 목적으로 하며, AMOC과 NSHF간의 관계를 탐구하고 
+                            특히 라브라도 해역에서 풍속 변화가 이러한 매개변수에 어떻게 영향을 미치는지 중점을 두는 작업.</p>
+                        <a href="project5.html" target="_blank">자세히 보기</a>
+                        <ul>
+                            <li>주요 기능: 데이터 수집, 연간 평균 계산, 상관 분석, 영역 분석, 풍속 변화의 공간 분포</li>
+                            <li>Matlab</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="projects-box">
+                    <div class="carousel">
+                        <div class="carousel-inner" id="carousel-inner-6">
+                            <img src="home.png" alt="Project home">
+                        </div>
+                        <div class="carousel-controls">
+                            <button onclick="prevSlide('carousel-inner-6')">←</button>
+                            <button onclick="nextSlide('carousel-inner-6')">→</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>개인 포트폴리오 홈페이지 만들기</h3>
+                        <p>2024.03 (1인 프로젝트)</p>
+                        <p>웹 프로그래밍 개발 수업에서 배운 내용을 바탕으로 홈페이지를 개발하고, 개인 포트폴리오를 작성
+                        </p>
+                        <a href="project6.html" target="_blank">자세히 보기</a>
+                        <ul>
+                            <li>주요 기능: HTML, CSS, JAVA Script</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="projects-box">
+                    <div class="carousel">
+                        <div class="carousel-inner" id="carousel-inner-6">
+                        </div>
+                        <div class="carousel-controls">
+                            <button onclick="prevSlide('carousel-inner-6')">←</button>
+                            <button onclick="nextSlide('carousel-inner-6')">→</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Bike-Sharing-Demand</h3>
+                        <p>2024.03 (4인 팀 프로젝트) 진행중</p>
+                        <p>자전거 대여 수요를 예측하는 모델을 개발하고, 머신 러닝을 이용한 회귀 분석을 실습. 특정 날짜와 시간에
+                            대여할 자전거 수를 예측하는 프로젝트
+                        </p>
+                        <a href="project7.html" target="_blank">자세히 보기</a>
+                        <ul>
+                            <li>주요 기능: pytorch, keras, tensorflow</li>
+                            <li>Python</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 엄규현. All rights reserved.</p>
+    </footer>
+    <script>
+        function prevSlide(carouselId) {
+            const carouselInner = document.getElementById(carouselId);
+            const activeElement = carouselInner.querySelector('.active');
+            let prevElement = activeElement ? activeElement.previousElementSibling : null;
+
+            if (!prevElement) {
+                prevElement = carouselInner.lastElementChild;
+            }
+
+            if (activeElement) {
+                activeElement.classList.remove('active');
+            }
+            prevElement.classList.add('active');
+            const index = Array.from(carouselInner.children).indexOf(prevElement);
+            carouselInner.style.transform = `translateX(${-index * 150}px)`;
+        }
+
+        function nextSlide(carouselId) {
+            const carouselInner = document.getElementById(carouselId);
+            const activeElement = carouselInner.querySelector('.active');
+            let nextElement = activeElement ? activeElement.nextElementSibling : null;
+
+            if (!nextElement) {
+                nextElement = carouselInner.firstElementChild;
+            }
+
+            if (activeElement) {
+                activeElement.classList.remove('active');
+            }
+            nextElement.classList.add('active');
+            const index = Array.from(carouselInner.children).indexOf(nextElement);
+            carouselInner.style.transform = `translateX(${-index * 150}px)`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.carousel-inner').forEach(inner => {
+                inner.firstElementChild.classList.add('active');
+            });
+
+            // Scroll event listener
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('nav a');
+
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 50 && rect.bottom >= 50) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        navLinks[index].classList.add('active');
+                    }
+                });
+            });
+
+            // Click event listener
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

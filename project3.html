@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인공파도풀 시뮬레이션</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .project-summary {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .project-summary a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .project-summary a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>인공파도풀 시뮬레이션</h1>
+        <div class="project-summary">
+            <h2>🔗 배포 URL</h2>
+            <a href="https://github.com/Gyuhyeon-Eom/python" target="_blank">https://github.com/Gyuhyeon-Eom/python</a>
+        </div>
+        <div class="project-summary">
+            <h2>📝 요약</h2>
+            <p>이 프로젝트는 작은 진폭의 파동 이론을 기반으로 인공호수에서의 파동 전파를 시뮬레이션하는 것을 목표로 합니다. 시뮬레이션은 2차원 조파수조에서 진행되며, 뉴턴-랩슨 방법을 사용하여 파동 매개변수를 계산하고 애니메이션으로 파동 동작을 시각화합니다.</p>
+        </div>
+        <div class="project-summary">
+            <h2>🔧 주요 기능</h2>
+            <ul>
+                <li>파동 매개변수 계산: 뉴턴-랩슨 방법을 사용하여 파동 매개변수 계산</li>
+                <li>진폭 계산: 주기와 깊이에 따라 파동 진폭 계산</li>
+                <li>파동 애니메이션: 2차원 조파수조에서 파동 전파 애니메이션</li>
+                <li>주기 찾기: 원하는 파고에 대한 주기를 이분법으로 찾기</li>
+            </ul>
+        </div>
+        <div class="project-summary">
+            <h2>📜 프로젝트의 배경</h2>
+            <p>이 프로젝트는 제어된 환경에서 파동의 동작을 이해하고 시뮬레이션하기 위해 시작되었습니다. 작은 진폭의 파동 이론을 사용하여 파동 역학을 예측하기 위한 단순화된 모델을 만들 수 있습니다. 이러한 시뮬레이션은 쓰나미 대비, 해안 공학 및 교육 목적으로 유용합니다. 이 프로젝트는 이론적 기초를 바탕으로 하고 있으며, 소규모 파동 탱크의 실험 데이터와 비교하여 검증되었습니다.</p>
+        </div>
+        <div class="project-summary">
+            <h2>🔍 프로젝트의 의미</h2>
+            <p>이 프로젝트는 교육적 및 실용적 가치를 모두 가지고 있습니다:</p>
+            <ul>
+                <li>**교육적 가치**: 수학적 모델링, 수치 해석 및 물리적 파동 현상에 대한 실제 경험을 제공합니다. 이론적 지식을 실제 응용으로 연결하여 유체 역학 및 파동 역학에 대한 이해를 높입니다.</li>
+                <li>**실용적 가치**: 파동 행동에 대한 통찰력을 제공하여 해안 보호, 쓰나미 시뮬레이션 및 구조물에 미치는 파동의 영향을 이해하는 데 도움이 됩니다. 파동 역학을 시뮬레이션하고 시각화하는 능력은 더 나은 해안 방어 설계 및 재난 대비를 돕습니다.</li>
+            </ul>
+        </div>
+        <div class="project-summary">
+            <h2>🛠 기술 스택</h2>
+            <ul>
+                <li>프로그래밍 언어: Python</li>
+                <li>수치 계산 라이브러리: NumPy</li>
+                <li>시각화 및 애니메이션 라이브러리: Matplotlib</li>
+                <li>수치 해석 라이브러리: SciPy</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
