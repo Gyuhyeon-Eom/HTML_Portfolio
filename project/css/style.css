@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: #fff;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav {
+    display: flex;
+    padding-right: 50px;
+}
+
+nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 5px;
+    transition: border-bottom 0.3s;
+}
+
+nav a.active {
+    border-bottom: 2px solid #fff;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.card h3 {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 0.8rem;
+    margin: 5px 0;
+    height: 40px;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 20px 20px;
+}
+
+section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #000;
+    text-align: center;
+    padding: 100px 20px;
+    width: 100%;
+    position: relative;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+section p {
+    font-size: 1.2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #ffc133;
+}
+
+.hero {
+    background: url('img/background.png') no-repeat center center/cover;
+    height: 500px;
+    color: #000000;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero h1, .hero h2, .hero p {
+    margin: 0;
+}
+
+.hero h1 {
+    font-size: 4rem;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #e94e77;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.hero a:hover {
+    background: #d43d66;
+}
+
+.about-me-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    justify-items: center;
+    align-items: center;
+    color: #000;
+}
+
+.about-me-info div {
+    text-align: center;
+}
+
+.about-me-info img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.about-me-info p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.skills, .archiving, .projects {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.skills-container, .archiving-container, .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-box, .archiving-box, .projects-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-box:hover, .archiving-box:hover, .projects-box:hover {
+    transform: translateY(-10px);
+}
+
+.skill-box img, .archiving-box img, .projects-box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.archiving-box {
+    display: flex;
+    align-items: center;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 30px;
+    text-align: left;
+    width: calc(80% - 20px);
+}
+
+.archiving-box img {
+    width: 50%;
+    height: auto;
+    margin-right: 20px;
+}
+
+.archiving-box div {
+    flex: 1;
+}
+
+.archiving-box h3 {
+    margin-top: 0;
+}
+
+.archiving-box a {
+    display: block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.archiving-box a:hover {
+    text-decoration: underline;
+}
+
+.projects-box {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 30px;
+    text-align: left;
+    width: calc(80% - 20px);
+}
+
+.projects-box img {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.projects-box div {
+    flex: 1;
+}
+
+.projects-box h3 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.projects-box p {
+    margin: 10px 0;
+}
+
+.projects-box a {
+    display: block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.projects-box a:hover {
+    text-decoration: underline;
+}
+
+.carousel {
+    position: relative;
+    width: 150px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-inner img {
+    width: 150px;
+    height: auto;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: calc(25% - 40px);
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+#about-me {
+    background-color: transparent;
+}
+
+#skills {
+    background-color: #F3E5F5;
+}
+
+#archiving {
+    background-color: #E8F5E9;
+}
+
+#projects {
+    background-color: #FFF3E0;
+}
